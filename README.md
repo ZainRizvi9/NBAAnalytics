@@ -14,15 +14,13 @@ https://youtu.be/6sxuP4BoEio
 
 ## Dashboard Preview
 
-<!-- Replace with your Streamlit app screenshot -->
-![Court Vision Dashboard](assets/dashboard.png)
+![Court Vision Dashboard](dashboard.png)
 
 ---
 
 ## Tableau Dashboard
 
-<!-- Add your Tableau dashboard screenshot here -->
-![NBA Player Analytics Tableau Dashboard](assets/tableau_dashboard.png)
+![NBA Player Analytics Tableau Dashboard](tableau.png)
 
 ---
 
@@ -98,6 +96,8 @@ NBAAnalytics/
 ├── seed_full.py        # Data ingestion and seeding script
 ├── value_model.sql     # SQL view definition for player_value_scores
 ├── requirements.txt    # Python dependencies
+├── dashboard.png       # Streamlit dashboard screenshot
+├── tableau.png         # Tableau dashboard screenshot
 └── .gitignore
 ```
 
