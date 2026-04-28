@@ -78,7 +78,11 @@ hr { border-color:#1c1c2e !important; }
 # ── DB ────────────────────────────────────────────────────────────────────────
 @st.cache_resource
 def get_conn():
-    return psycopg2.connect(dbname="nba_analytics", user="zain", host="localhost", port="5432")
+    import os
+    from dotenv import load_dotenv
+    load_dotenv()
+    url = os.getenv("DATABASE_URL", "postgresql://zain@localhost:5432/nba_analytics")
+    return psycopg2.connect(url)
 
 @st.cache_data(ttl=300)
 def q(sql):
