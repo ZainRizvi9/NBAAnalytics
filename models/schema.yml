@@ -1,0 +1,58 @@
+version: 2
+
+models:
+  - name: stg_player_stats
+    description: "Cleaned player stats joined with player, team, and season dimensions"
+    columns:
+      - name: player_id
+        description: "Unique player identifier"
+        tests:
+          - not_null
+      - name: games_played
+        description: "Games played in the season"
+        tests:
+          - not_null
+      - name: season
+        description: "NBA season string e.g. 2023-24"
+        tests:
+          - not_null
+
+  - name: stg_league_averages
+    description: "Per-season league averages used as PVS baselines"
+    columns:
+      - name: season_id
+        description: "Foreign key to dim_seasons"
+        tests:
+          - not_null
+          - unique
+
+  - name: stg_player_consistency
+    description: "Career consistency and availability metrics per player"
+    columns:
+      - name: player_id
+        description: "Unique player identifier"
+        tests:
+          - not_null
+          - unique
+      - name: consistency_score
+        description: "Inverse coefficient of variation — higher is more consistent"
+        tests:
+          - not_null
+
+  - name: player_value_scores
+    description: "Final composite Player Value Score across all players and seasons"
+    columns:
+      - name: full_name
+        description: "Player full name"
+        tests:
+          - not_null
+      - name: pvs
+        description: "Composite Player Value Score"
+        tests:
+          - not_null
+      - name: conference
+        description: "NBA conference"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['East', 'West']

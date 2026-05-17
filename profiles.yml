@@ -1,0 +1,12 @@
+court_vision:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: "aws-1-us-east-1.pooler.supabase.com"
+      port: 5432
+      user: "postgres.kakgxbjvakaruufnmwzz"
+      password: "{{ env_var('DBT_PASSWORD') }}"
+      dbname: postgres
+      schema: public
+      threads: 1
